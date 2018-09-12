@@ -12,12 +12,14 @@
         </svg>
         输入城市景点游玩
       </div>
-      <div class="header-right">
-        {{this.city}}
-        <svg class="icon arrow-icon" aria-hidden="true">
-           <use xlink:href="#icon-jiantouxia"></use>
-        </svg>
-      </div>
+      <router-link to="/city">
+        <div class="header-right">
+          {{this.city}}
+          <svg class="icon arrow-icon" aria-hidden="true">
+              <use xlink:href="#icon-jiantouxia"></use>
+          </svg>
+        </div>
+      </router-link>
     </div>
     </div>
 </template>
@@ -35,7 +37,7 @@ export default {
   @import '~styles/varibles.styl'
   .header
     display: flex
-    line-height: 0.86rem
+    line-height: $headerHeight
     background: $bgColor
     color:#fff
     .header-left
@@ -58,6 +60,7 @@ export default {
       width: 1.24rem
       float: right
       text-align: center
+      color: white
       .arrow-icon
         font-size: .24rem
         margin-left: -.04rem
