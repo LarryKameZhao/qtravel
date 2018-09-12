@@ -1,6 +1,6 @@
 <template>
   <div class="icons">
-   <swiper>
+   <swiper :options="swiperOption">
    <swiper-slide v-for="(page,index) of pages" :key="index">
     <div class="icon" v-for="item of page" :key="item.id">
     <div class="icon-img">
@@ -16,45 +16,14 @@
 <script>
 export default {
   name: 'HomeIcons',
+  props: {
+    iconList: Array
+  },
   data () {
     return {
-      iconList: [{
-        id: '0001',
-        imgUrl: '//i.loli.net/2018/09/10/5b9673bebcf1f.png',
-        desc: '景点门票'
-      }, {
-        id: '0002',
-        imgUrl: '//i.loli.net/2018/09/10/5b9673beaa98c.png',
-        desc: '古镇'
-      }, {
-        id: '0003',
-        imgUrl: '//i.loli.net/2018/09/10/5b9673bed95eb.png',
-        desc: '一日游'
-      }, {
-        id: '0004',
-        imgUrl: '//i.loli.net/2018/09/10/5b9673bed1d33.png',
-        desc: '苏州必玩'
-      }, {
-        id: '0005',
-        imgUrl: '//i.loli.net/2018/09/10/5b9673bed048d.png',
-        desc: '水上乐园'
-      }, {
-        id: '0006',
-        imgUrl: '//i.loli.net/2018/09/10/5b9673bebec4f.png',
-        desc: '汽车票'
-      }, {
-        id: '0007',
-        imgUrl: '//i.loli.net/2018/09/10/5b9673beaa98c.png',
-        desc: '古镇'
-      }, {
-        id: '0008',
-        imgUrl: '//i.loli.net/2018/09/10/5b9673bee1c82.png',
-        desc: '拙政园'
-      }, {
-        id: '0009',
-        imgUrl: '//i.loli.net/2018/09/10/5b9673bee1c82.png',
-        desc: '拙政园1'
-      }]
+      swiperOption: {
+        autoplay: false
+      }
     }
   },
   computed: {
