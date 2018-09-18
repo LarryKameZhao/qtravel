@@ -1,17 +1,17 @@
 <template>
    <div>
        <div class="banner" @click="handleBannerClick">
-        <img class="banner-img" src="//i.loli.net/2018/09/17/5b9f65a91ea56.jpg" alt="">
+        <img class="banner-img" :src="bannerImg" alt="">
         <div class="banner-info">
-          <div class="banner-title">沙家浜公园（AAAAA级景区）</div>
+          <div class="banner-title">{{this.sightName}}</div>
           <div class="banner-number">
             <svg class="icon collect" aria-hidden="true">
                 <use xlink:href="#icon-collect"></use>
-            </svg>100
+            </svg>{{this.gallaryImgs.length}}
           </div>
         </div>
     </div>
-    <common-gallary :imgs="imgs" v-show="showGallary" @close="handleGallaryClose"></common-gallary>
+    <common-gallary :imgs="gallaryImgs" v-show="showGallary" @close="handleGallaryClose"></common-gallary>
    </div>
 </template>
 
@@ -21,12 +21,13 @@ export default {
   name: 'DetailBanner',
   data () {
     return {
-      showGallary: false,
-      imgs: [
-        '//i.loli.net/2018/09/17/5b9f65a953070.jpg',
-        '//i.loli.net/2018/09/17/5b9f65a968148.jpg'
-      ]
+      showGallary: false
     }
+  },
+  props: {
+    sightName: String,
+    bannerImg: String,
+    gallaryImgs: Array
   },
   methods: {
     handleBannerClick () {
